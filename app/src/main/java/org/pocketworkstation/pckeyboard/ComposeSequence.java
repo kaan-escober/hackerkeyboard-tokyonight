@@ -28,36 +28,6 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Interface for handling compose sequence callbacks.
- * 
- * Defines the contract for components that consume compose sequence results,
- * providing methods to output text, update keyboard state, and query the current
- * input editor context.
- */
-interface ComposeSequencing {
-    /**
-     * Called when a compose sequence completes and produces text output.
-     * 
-     * @param text The resulting character sequence from the completed compose sequence
-     */
-    public void onText(CharSequence text);
-    
-    /**
-     * Updates the shift key state based on the current input context.
-     * 
-     * @param attr The current editor information context
-     */
-    public void updateShiftKeyState(EditorInfo attr);
-    
-    /**
-     * Retrieves the current input editor context information.
-     * 
-     * @return The current EditorInfo, or null if no editor is active
-     */
-    public EditorInfo getCurrentInputEditorInfo();
-}
-
-/**
  * Manages multi-key compose sequences for Unicode character input.
  * 
  * This class implements a compose key system that allows users to enter special

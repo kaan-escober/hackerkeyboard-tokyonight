@@ -177,7 +177,7 @@ public class LatinKeyboardBaseView extends View implements PointerTracker.UIProx
     private final int mKeyRepeatInterval;
 
     // Miscellaneous constants
-    /* package */ static final int NOT_A_KEY = -1;
+    public static final int NOT_A_KEY = -1;
     private static final int NUMBER_HINT_VERTICAL_ADJUSTMENT_PIXEL = -1;
     
     private static Typeface sCustomTypeface;

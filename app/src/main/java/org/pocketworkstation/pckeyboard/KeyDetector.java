@@ -23,7 +23,7 @@ import org.pocketworkstation.pckeyboard.Keyboard.Key;
 import java.util.Arrays;
 import java.util.List;
 
-abstract class KeyDetector {
+public abstract class KeyDetector {
     protected Keyboard mKeyboard;
 
     private Key[] mKeys;
@@ -49,15 +49,15 @@ abstract class KeyDetector {
         return array;
     }
 
-    protected int getTouchX(int x) {
+    public int getTouchX(int x) {
         return x + mCorrectionX;
     }
 
-    protected int getTouchY(int y) {
+    public int getTouchY(int y) {
         return y + mCorrectionY;
     }
 
-    protected Key[] getKeys() {
+    public Key[] getKeys() {
         if (mKeys == null)
             throw new IllegalStateException("keyboard isn't set");
         // mKeyboard is guaranteed not to be null at setKeybaord() method if mKeys is not null

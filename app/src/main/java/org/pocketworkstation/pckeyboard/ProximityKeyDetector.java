@@ -44,7 +44,7 @@ import java.util.Arrays;
  * @see KeyDetector
  * @see Keyboard.Key
  */
-class ProximityKeyDetector extends KeyDetector {
+public class ProximityKeyDetector extends KeyDetector {
     private static final int MAX_NEARBY_KEYS = 12;
 
     // working area
@@ -56,7 +56,7 @@ class ProximityKeyDetector extends KeyDetector {
      * @return The maximum number of nearby keys (12)
      */
     @Override
-    protected int getMaxNearbyKeys() {
+    public int getMaxNearbyKeys() {
         return MAX_NEARBY_KEYS;
     }
 

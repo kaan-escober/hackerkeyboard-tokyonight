@@ -187,13 +187,3 @@ All notable changes to this project will be documented in this file.
 - **Legacy Assets**: Purged all old Gingerbread, ICS, and Stone theme files and bitmap (`.9.png`) assets.
 
 ---
-
-## Recent Commits
-* [d91762f] 2025-12-25: fix: surgical color correction for arrows and popup positioning
-* [b6f1742] 2025-12-25: feat: implement modern fluid popup animation and style for Storm theme
-* [b4c83b9] 2025-12-25: style: set key popup and preview corners to Tokyo Night green for Storm theme
-* [8d8d743] 2025-12-25: docs: update implementation plan and progress in GEMINI.md
-* [84c7940] 2025-12-25: fix: correct drawable selectors for Day, Moon, and Night themes and refine Day palette
-* [807aef6] 2025-12-25: fix: swap background colors for Storm and Moon variants
-* [7ed0cdd] 2025-12-25: style: refine Tokyo Night tones, fix shift lock icon, and improve popup aesthetic
-* [fb48b0b] 2025-12-25: feat: complete Tokyo Night theme overhaul and legacy asset purge

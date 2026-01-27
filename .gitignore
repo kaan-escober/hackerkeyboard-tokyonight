@@ -13,4 +13,9 @@
 .externalNativeBuild
 tokyonight.nvim/
 /app/build
+.mcp.json
+COMPLETE_TEST_PLAN.md
 JAVA_SOURCE_INDEX.md
+MIGRATION_RISK_ANALYSIS.md
+TEST_COVERAGE.md
+TEST_RESULTS.md
