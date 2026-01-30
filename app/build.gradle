@@ -29,12 +29,13 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
+        freeCompilerArgs += ['-opt-in=kotlin.RequiresOptIn']
     }
 
     lint {
@@ -47,7 +48,7 @@ dependencies {
     // Core Android dependencies
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'
-    implementation 'androidx.preference:preference:1.2.1'
+    implementation 'androidx.preference:preference-ktx:1.2.1'
 
     // ViewPager2 for tab navigation
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
@@ -61,9 +62,19 @@ dependencies {
     // CoordinatorLayout for Material Design
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
 
+    // Kotlin extensions (cached)
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
+    implementation 'androidx.lifecycle:lifecycle-service:2.7.0'
+
+    // Coroutines (cached)
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
+
     // Testing dependencies (Pure JVM)
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.mockito:mockito-core:5.7.0'
+    testImplementation 'org.mockito.kotlin:mockito-kotlin:5.2.1'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3'
     
     // Instrumentation tests (optional - for full IME integration tests)
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

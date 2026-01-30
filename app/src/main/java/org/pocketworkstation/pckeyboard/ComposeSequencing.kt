@@ -14,9 +14,9 @@
  * under the Licence.
  */
 
-package org.pocketworkstation.pckeyboard;
+package org.pocketworkstation.pckeyboard
 
-import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.EditorInfo
 
 /**
  * Interface for handling compose sequence callbacks.
@@ -25,25 +25,25 @@ import android.view.inputmethod.EditorInfo;
  * providing methods to output text, update keyboard state, and query the current
  * input editor context.
  */
-public interface ComposeSequencing {
+interface ComposeSequencing {
     /**
      * Called when a compose sequence completes and produces text output.
      * 
      * @param text The resulting character sequence from the completed compose sequence
      */
-    public void onText(CharSequence text);
-    
+    fun onText(text: CharSequence)
+
     /**
      * Updates the shift key state based on the current input context.
      * 
      * @param attr The current editor information context
      */
-    public void updateShiftKeyState(EditorInfo attr);
-    
+    fun updateShiftKeyState(attr: EditorInfo)
+
     /**
      * Retrieves the current input editor context information.
      * 
      * @return The current EditorInfo, or null if no editor is active
      */
-    public EditorInfo getCurrentInputEditorInfo();
+    fun getCurrentInputEditorInfo(): EditorInfo?
 }

@@ -19,11 +19,11 @@ open class SeekBarPreferenceString : SeekBarPreference {
         private val FLOAT_RE: Pattern = Pattern.compile("(\\d+\\.?\\d*).*")
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) :
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int, defStyleRes: Int) :
             super(context, attrs, defStyleAttr, defStyleRes)
 
     /**
@@ -40,8 +40,8 @@ open class SeekBarPreferenceString : SeekBarPreference {
         return num.group(1)?.toFloat() ?: 0.0f
     }
 
-    override fun onGetDefaultValue(a: android.content.res.TypedArray, index: Int): Any? {
-        return a.getString(index)
+    override fun onGetDefaultValue(a: android.content.res.TypedArray, index: Int): Any {
+        return a.getString(index) ?: ""
     }
 
     override fun onSetInitialValue(defaultValue: Any?) {

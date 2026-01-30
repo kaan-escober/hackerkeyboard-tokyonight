@@ -14,66 +14,64 @@
  * the License.
  */
 
-package org.pocketworkstation.pckeyboard;
-
-import java.util.ArrayList;
+package org.pocketworkstation.pckeyboard
 
 /**
  * A place to store the currently composing word with information such as adjacent key codes as well
  */
-public class WordComposer {
+class WordComposer {
     /**
      * The list of unicode values for each keystroke (including surrounding keys)
      */
-    private final ArrayList<int[]> mCodes;
-    
+    private val mCodes: ArrayList<IntArray>
+
     /**
      * The word chosen from the candidate list, until it is committed.
      */
-    private String mPreferredWord;
-    
-    private final StringBuilder mTypedWord;
+    private var mPreferredWord: String? = null
 
-    private int mCapsCount;
+    private val mTypedWord: StringBuilder
 
-    private boolean mAutoCapitalized;
-    
+    private var mCapsCount: Int = 0
+
+    private var mAutoCapitalized: Boolean = false
+
     /**
      * Whether the user chose to capitalize the first char of the word.
      */
-    private boolean mIsFirstCharCapitalized;
+    private var mIsFirstCharCapitalized: Boolean = false
 
-    public WordComposer() {
-        mCodes = new ArrayList<int[]>(12);
-        mTypedWord = new StringBuilder(20);
+    constructor() {
+        mCodes = ArrayList(12)
+        mTypedWord = StringBuilder(20)
     }
 
-    WordComposer(WordComposer copy) {
-        mCodes = new ArrayList<int[]>(copy.mCodes);
-        mPreferredWord = copy.mPreferredWord;
-        mTypedWord = new StringBuilder(copy.mTypedWord);
-        mCapsCount = copy.mCapsCount;
-        mAutoCapitalized = copy.mAutoCapitalized;
-        mIsFirstCharCapitalized = copy.mIsFirstCharCapitalized;
+    internal constructor(copy: WordComposer) {
+        mCodes = ArrayList(copy.mCodes)
+        mPreferredWord = copy.mPreferredWord
+        mTypedWord = StringBuilder(copy.mTypedWord)
+        mCapsCount = copy.mCapsCount
+        mAutoCapitalized = copy.mAutoCapitalized
+        mIsFirstCharCapitalized = copy.mIsFirstCharCapitalized
     }
 
     /**
      * Clear out the keys registered so far.
      */
-    public void reset() {
-        mCodes.clear();
-        mIsFirstCharCapitalized = false;
-        mPreferredWord = null;
-        mTypedWord.setLength(0);
-        mCapsCount = 0;
+    fun reset() {
+        mCodes.clear()
+        mIsFirstCharCapitalized = false
+        mPreferredWord = null
+        mTypedWord.setLength(0)
+        mCapsCount = 0
     }
 
     /**
      * Number of keystrokes in the composing word.
      * @return the number of keystrokes
      */
-    public int size() {
-        return mCodes.size();
+    fun size(): Int {
+        return mCodes.size
     }
 
     /**
@@ -81,8 +79,8 @@ public class WordComposer {
      * @param index the position in the word
      * @return the unicode for the pressed and surrounding keys
      */
-    public int[] getCodesAt(int index) {
-        return mCodes.get(index);
+    fun getCodesAt(index: Int): IntArray {
+        return mCodes[index]
     }
 
     /**
@@ -90,12 +88,12 @@ public class WordComposer {
      * the array containing unicode for adjacent keys, sorted by reducing probability/proximity.
      * @param codes the array of unicode values
      */
-    public void add(int primaryCode, int[] codes) {
-        mTypedWord.append((char) primaryCode);
-        correctPrimaryJuxtapos(primaryCode, codes);
-        correctCodesCase(codes);
-        mCodes.add(codes);
-        if (Character.isUpperCase((char) primaryCode)) mCapsCount++;
+    fun add(primaryCode: Int, codes: IntArray) {
+        mTypedWord.append(primaryCode.toChar())
+        correctPrimaryJuxtapos(primaryCode, codes)
+        correctCodesCase(codes)
+        mCodes.add(codes)
+        if (Character.isUpperCase(primaryCode.toChar())) mCapsCount++
     }
 
     /**
@@ -105,33 +103,33 @@ public class WordComposer {
      * @param primaryCode the preferred character
      * @param codes array of codes based on distance from touch point
      */
-    private void correctPrimaryJuxtapos(int primaryCode, int[] codes) {
-        if (codes.length < 2) return;
+    private fun correctPrimaryJuxtapos(primaryCode: Int, codes: IntArray) {
+        if (codes.size < 2) return
         if (codes[0] > 0 && codes[1] > 0 && codes[0] != primaryCode && codes[1] == primaryCode) {
-            codes[1] = codes[0];
-            codes[0] = primaryCode;
+            codes[1] = codes[0]
+            codes[0] = primaryCode
         }
     }
 
-    // Prediction expects the keyKodes to be lowercase
-    private void correctCodesCase(int[] codes) {
-        for (int i = 0; i < codes.length; ++i) {
-            int code = codes[i];
-            if (code > 0) codes[i] = Character.toLowerCase(code);
+    // Prediction expects the keyCodes to be lowercase
+    private fun correctCodesCase(codes: IntArray) {
+        for (i in codes.indices) {
+            val code = codes[i]
+            if (code > 0) codes[i] = Character.toLowerCase(code)
         }
     }
-    
+
     /**
      * Delete the last keystroke as a result of hitting backspace.
      */
-    public void deleteLast() {
-        final int codesSize = mCodes.size();
+    fun deleteLast() {
+        val codesSize = mCodes.size
         if (codesSize > 0) {
-            mCodes.remove(codesSize - 1);
-            final int lastPos = mTypedWord.length() - 1;
-            char last = mTypedWord.charAt(lastPos);
-            mTypedWord.deleteCharAt(lastPos);
-            if (Character.isUpperCase(last)) mCapsCount--;
+            mCodes.removeAt(codesSize - 1)
+            val lastPos = mTypedWord.length - 1
+            val last = mTypedWord[lastPos]
+            mTypedWord.deleteCharAt(lastPos)
+            if (Character.isUpperCase(last)) mCapsCount--
         }
     }
 
@@ -139,71 +137,71 @@ public class WordComposer {
      * Returns the word as it was typed, without any correction applied.
      * @return the word that was typed so far
      */
-    public CharSequence getTypedWord() {
-        int wordSize = mCodes.size();
+    fun getTypedWord(): CharSequence? {
+        val wordSize = mCodes.size
         if (wordSize == 0) {
-            return null;
+            return null
         }
-        return mTypedWord;
+        return mTypedWord
     }
 
-    public void setFirstCharCapitalized(boolean capitalized) {
-        mIsFirstCharCapitalized = capitalized;
+    fun setFirstCharCapitalized(capitalized: Boolean) {
+        mIsFirstCharCapitalized = capitalized
     }
-    
+
     /**
      * Whether or not the user typed a capital letter as the first letter in the word
      * @return capitalization preference
      */
-    public boolean isFirstCharCapitalized() {
-        return mIsFirstCharCapitalized;
+    fun isFirstCharCapitalized(): Boolean {
+        return mIsFirstCharCapitalized
     }
 
     /**
      * Whether or not all of the user typed chars are upper case
      * @return true if all user typed chars are upper case, false otherwise
      */
-    public boolean isAllUpperCase() {
-        return (mCapsCount > 0) && (mCapsCount == size());
+    fun isAllUpperCase(): Boolean {
+        return (mCapsCount > 0) && (mCapsCount == size())
     }
 
     /**
      * Stores the user's selected word, before it is actually committed to the text field.
      * @param preferred
      */
-    public void setPreferredWord(String preferred) {
-        mPreferredWord = preferred;
+    fun setPreferredWord(preferred: String?) {
+        mPreferredWord = preferred
     }
-    
+
     /**
      * Return the word chosen by the user, or the typed word if no other word was chosen.
      * @return the preferred word
      */
-    public CharSequence getPreferredWord() {
-        return mPreferredWord != null ? mPreferredWord : getTypedWord();
+    fun getPreferredWord(): CharSequence? {
+        return mPreferredWord ?: getTypedWord()
     }
 
     /**
      * Returns true if more than one character is upper case, otherwise returns false.
      */
-    public boolean isMostlyCaps() {
-        return mCapsCount > 1;
+    fun isMostlyCaps(): Boolean {
+        return mCapsCount > 1
     }
 
-    /** 
+    /**
      * Saves the reason why the word is capitalized - whether it was automatic or
      * due to the user hitting shift in the middle of a sentence.
      * @param auto whether it was an automatic capitalization due to start of sentence
      */
-    public void setAutoCapitalized(boolean auto) {
-        mAutoCapitalized = auto;
+    fun setAutoCapitalized(auto: Boolean) {
+        mAutoCapitalized = auto
     }
 
     /**
      * Returns whether the word was automatically capitalized.
      * @return whether the word was automatically capitalized
      */
-    public boolean isAutoCapitalized() {
-        return mAutoCapitalized;
+    fun isAutoCapitalized(): Boolean {
+        return mAutoCapitalized
     }
 }

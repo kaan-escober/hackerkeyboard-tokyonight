@@ -171,7 +171,7 @@ public class LatinIME extends InputMethodService implements
     private String mVolUpAction;
     private String mVolDownAction;
 
-    public static final GlobalKeyboardSettings sKeyboardSettings = new GlobalKeyboardSettings(); 
+    public static final GlobalKeyboardSettings sKeyboardSettings = GlobalKeyboardSettings.INSTANCE; 
     static LatinIME sInstance;
     
     private int mHeightPortrait;

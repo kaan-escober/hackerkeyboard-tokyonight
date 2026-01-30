@@ -14,19 +14,17 @@
  * the License.
  */
 
-package org.pocketworkstation.pckeyboard;
+package org.pocketworkstation.pckeyboard
 
-import android.app.backup.BackupAgentHelper;
-import android.app.backup.SharedPreferencesBackupHelper;
+import android.app.backup.BackupAgentHelper
+import android.app.backup.SharedPreferencesBackupHelper
 
 /**
  * Backs up the Latin IME shared preferences.
  */
-public class LatinIMEBackupAgent extends BackupAgentHelper {
+class LatinIMEBackupAgent : BackupAgentHelper() {
 
-    @Override
-    public void onCreate() {
-        addHelper("shared_pref", new SharedPreferencesBackupHelper(this,
-                getPackageName() + "_preferences"));
+    override fun onCreate() {
+        addHelper("shared_pref", SharedPreferencesBackupHelper(this, "${packageName}_preferences"))
     }
 }
