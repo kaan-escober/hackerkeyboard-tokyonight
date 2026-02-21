@@ -113,7 +113,7 @@ class PointerTracker internal constructor(
     private fun isModifierInternal(keyIndex: Int): Boolean {
         val key = getKey(keyIndex) ?: return false
         if (key.codes == null) return false
-        val primaryCode = key.codes[0]
+        val primaryCode = key.codes!![0]
         return primaryCode == Keyboard.KEYCODE_SHIFT ||
                 primaryCode == Keyboard.KEYCODE_MODE_CHANGE ||
                 primaryCode == LatinKeyboardView.KEYCODE_CTRL_LEFT ||
@@ -132,7 +132,7 @@ class PointerTracker internal constructor(
 
     fun isSpaceKey(keyIndex: Int): Boolean {
         val key = getKey(keyIndex) ?: return false
-        return key.codes != null && key.codes[0] == LatinIME.ASCII_SPACE
+        return key.codes != null && key.codes!![0] == LatinIME.ASCII_SPACE
     }
 
     fun updateKey(keyIndex: Int) {
@@ -378,9 +378,10 @@ class PointerTracker internal constructor(
         if (key == null) {
             listener?.onCancel()
         } else {
-            if (key.text != null) {
+            val keyText = key.text
+            if (keyText != null) {
                 listener?.let {
-                    it.onText(key.text)
+                    it.onText(keyText)
                     it.onRelease(0) // dummy key code
                 }
             } else {
@@ -395,7 +396,7 @@ class PointerTracker internal constructor(
                     } else {
                         mTapCount = 0
                     }
-                    code = key.codes[mTapCount]
+                    code = key.codes!![mTapCount]
                 }
                 /*
                  * Swap the first and second values in the codes array if the primary code is not
@@ -422,7 +423,7 @@ class PointerTracker internal constructor(
         return if (mInMultiTap) {
             // Multi-tap
             mPreviewLabel.setLength(0)
-            mPreviewLabel.append(key.codes[if (mTapCount < 0) 0 else mTapCount].toChar())
+            mPreviewLabel.append(key.codes!![if (mTapCount < 0) 0 else mTapCount].toChar())
             mPreviewLabel
         } else {
             if (key.isDeadKey()) {
@@ -445,11 +446,12 @@ class PointerTracker internal constructor(
         if (key == null || key.codes == null)
             return
 
+        val keyCodes = key.codes!!
         val isMultiTap = (eventTime < mLastTapTime + mMultiTapKeyTimeout && keyIndex == mLastSentIndex)
-        if (key.codes.size > 1) {
+        if (keyCodes.size > 1) {
             mInMultiTap = true
             if (isMultiTap) {
-                mTapCount = (mTapCount + 1) % key.codes.size
+                mTapCount = (mTapCount + 1) % keyCodes.size
                 return
             } else {
                 mTapCount = -1
@@ -467,7 +469,7 @@ class PointerTracker internal constructor(
         val code: String = if (key == null || key.codes == null) {
             "----"
         } else {
-            val primaryCode = key.codes[0]
+            val primaryCode = key.codes!![0]
             String.format(if (primaryCode < 0) "%4d" else "0x%02x", primaryCode)
         }
         Log.d(TAG, String.format("%s%s[%d] %3d,%3d %3d(%s) %s", title,

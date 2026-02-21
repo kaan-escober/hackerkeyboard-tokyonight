@@ -100,9 +100,9 @@ class ProximityKeyDetector : KeyDetector() {
             if (((mProximityCorrectOn &&
                         key.squaredDistanceFrom(touchX, touchY).also { dist = it } < mProximityThresholdSquare) ||
                         isInside) &&
-                key.codes[0] > 32) {
+                key.codes!![0] > 32) {
                 // Find insertion point
-                val nCodes = key.codes.size
+                val nCodes = key.codes!!.size
                 if (dist < closestKeyDist) {
                     closestKeyDist = dist
                     closestKey = nearestKeyIndices[i]

@@ -40,7 +40,7 @@ abstract class KeyDetector {
         mCorrectionX = correctionX.toInt()
         mCorrectionY = correctionY.toInt()
         mKeyboard = keyboard
-        val keys = mKeyboard!!.keys
+        val keys = mKeyboard!!.getKeys()
         val array = keys.toTypedArray()
         mKeys = array
         return array

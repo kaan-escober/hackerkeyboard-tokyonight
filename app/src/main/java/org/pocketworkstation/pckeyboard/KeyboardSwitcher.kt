@@ -561,7 +561,7 @@ class KeyboardSwitcher private constructor() : SharedPreferences.OnSharedPrefere
             val keyboardView = getInputView()
             mIsAutoCompletionActive = isAutoCompletion
             keyboardView?.let {
-                val keyboard = it.getKeyboard() as? LatinKeyboard
+                val keyboard = it.keyboard as? LatinKeyboard
                 keyboard?.let { kbd ->
                     val key = kbd.onAutoCompletionStateChanged(isAutoCompletion)
                     if (key != null) {
