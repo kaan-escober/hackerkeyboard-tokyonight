@@ -70,7 +70,7 @@ class TextEntryState {
          *
          * @param context The Android application context, used to open log files if LOGGING is enabled
          */
-        @JvmStatic
+       
         fun newSession(context: Context) {
             sSessionCount++
             sBackspaceCount = 0
@@ -91,7 +91,7 @@ class TextEntryState {
         /**
          * Closes the current text entry session and writes session statistics to the debug log.
          */
-        @JvmStatic
+       
         fun endSession() {
             if (sKeyLocationFile == null) return
 
@@ -114,28 +114,28 @@ class TextEntryState {
             }
         }
 
-        @JvmStatic
+       
         fun acceptedDefault(typedWord: CharSequence, actualWord: CharSequence) {
             // no-op
         }
 
-        @JvmStatic
+       
         fun backToAcceptedDefault(typedWord: CharSequence) {
             // no-op
         }
 
-        @JvmStatic
+       
         fun manualTyped(typedWord: CharSequence) {
             sState = State.START
             displayState()
         }
 
-        @JvmStatic
+       
         fun acceptedTyped(typedWord: CharSequence) {
             // no-op
         }
 
-        @JvmStatic
+       
         fun selectedForCorrection() {
             // no-op
         }
@@ -146,7 +146,7 @@ class TextEntryState {
          * @param c The character that was typed
          * @param isSeparator true if the character is a word separator, false otherwise
          */
-        @JvmStatic
+       
         fun typedCharacter(c: Char, isSeparator: Boolean) {
             val isSpace = c == ' '
             when (sState) {
@@ -171,13 +171,13 @@ class TextEntryState {
         /**
          * Records a backspace key press and updates debug logging.
          */
-        @JvmStatic
+       
         fun backspace() {
             sBackspaceCount++
             displayState()
         }
 
-        @JvmStatic
+       
         fun reset() {
             sState = State.START
             displayState()
@@ -188,7 +188,7 @@ class TextEntryState {
          *
          * @return The current State of the text entry state machine
          */
-        @JvmStatic
+       
         fun getState(): State {
             if (DBG) {
                 Log.d(TAG, "Returning state = $sState")
@@ -196,7 +196,7 @@ class TextEntryState {
             return sState
         }
 
-        @JvmStatic
+       
         fun isCorrecting(): Boolean = false
 
         /**
@@ -206,7 +206,7 @@ class TextEntryState {
          * @param x The X coordinate of the touch event
          * @param y The Y coordinate of the touch event
          */
-        @JvmStatic
+       
         fun keyPressedAt(key: Key, x: Int, y: Int) {
             if (LOGGING && sKeyLocationFile != null && key.codes!![0] >= 32) {
                 val out =

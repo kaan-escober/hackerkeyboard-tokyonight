@@ -25,7 +25,7 @@ import android.content.SharedPreferences
  */
 object SharedPreferencesCompat {
 
-    @JvmStatic
+   
     fun apply(editor: SharedPreferences.Editor) {
         try {
             editor.apply()

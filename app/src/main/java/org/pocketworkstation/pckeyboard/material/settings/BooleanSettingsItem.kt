@@ -19,7 +19,7 @@ package org.pocketworkstation.pckeyboard.material.settings
 /**
  * Settings item for boolean (switch/toggle) preferences.
  */
-class BooleanSettingsItem @JvmOverloads constructor(
+class BooleanSettingsItem constructor(
     key: String,
     title: String,
     summary: String,

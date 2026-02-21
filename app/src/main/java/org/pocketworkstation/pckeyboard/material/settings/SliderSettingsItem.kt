@@ -20,7 +20,7 @@ package org.pocketworkstation.pckeyboard.material.settings
  * Settings item for slider/seekbar preferences.
  * Supports both integer and float values, with optional percentage display.
  */
-class SliderSettingsItem @JvmOverloads constructor(
+class SliderSettingsItem constructor(
     key: String,
     title: String,
     summary: String,

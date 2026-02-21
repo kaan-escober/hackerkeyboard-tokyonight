@@ -29,82 +29,82 @@ object GlobalKeyboardSettings {
     /* Simple prefs updated by this class */
     //
     // Read by Keyboard
-    @JvmField
+   
     var popupKeyboardFlags = 0x1
-    @JvmField
+   
     var topRowScale = 1.0f
     //
     // Read by LatinKeyboardView
-    @JvmField
+   
     var showTouchPos = false
     //
     // Read by LatinIME
-    @JvmField
+   
     var keyboardModePortrait = 0
-    @JvmField
+   
     var keyboardModeLandscape = 2
-    @JvmField
+   
     var compactModeEnabled = true  // always on
-    @JvmField
+   
     var ctrlAOverride = 0
-    @JvmField
+   
     var chordingCtrlKey = 0
-    @JvmField
+   
     var chordingAltKey = 0
-    @JvmField
+   
     var chordingMetaKey = 0
-    @JvmField
+   
     var keyClickVolume = 0.0f
-    @JvmField
+   
     var keyClickMethod = 0
-    @JvmField
+   
     var capsLock = true
-    @JvmField
+   
     var shiftLockModifiers = false
-    @JvmField
+   
     var inputLocale: Locale = Locale.getDefault()
-    @JvmField
+   
     var suggestedPunctuation = "!?,."
     //
     // Read by LatinKeyboardBaseView
-    @JvmField
+   
     var labelScalePref = 1.0f
     //
     // Read by PointerTracker
-    @JvmField
+   
     var sendSlideKeys = 0
 
     /* Updated by LatinIME */
     //
     // Read by KeyboardSwitcher
-    @JvmField
+   
     var keyboardMode = 0
-    @JvmField
+   
     var useExtension = false
     //
     // Read by LatinKeyboardView and KeyboardSwitcher
-    @JvmField
+   
     var keyboardHeightPercent = 40.0f // percent of screen height
     //
     // Read by LatinKeyboardBaseView
-    @JvmField
+   
     var hintMode = 0
-    @JvmField
+   
     var renderMode = 1
     //
     // Read by PointerTracker
-    @JvmField
+   
     var longpressTimeout = 400
     //
     // Read by LatinIMESettings
     // These are cached values for informational display, don't use for other purposes
-    @JvmField
+   
     var editorPackageName: String? = null
-    @JvmField
+   
     var editorFieldName: String? = null
-    @JvmField
+   
     var editorFieldId: Int = 0
-    @JvmField
+   
     var editorInputType: Int = 0
 
     /* Updated by KeyboardSwitcher */
@@ -135,7 +135,7 @@ object GlobalKeyboardSettings {
         fun getFlags(): Int
     }
 
-    @JvmStatic
+   
     fun initPrefs(prefs: SharedPreferences, resources: Resources) {
         val res = resources
 
@@ -318,7 +318,7 @@ object GlobalKeyboardSettings {
         }
     }
 
-    @JvmStatic
+   
     fun sharedPreferenceChanged(prefs: SharedPreferences, key: String) {
         mCurrentFlags = FLAG_PREF_NONE
         val bPref = mBoolPrefs[key]
@@ -334,7 +334,7 @@ object GlobalKeyboardSettings {
         //if (!found) Log.i(TAG, "sharedPreferenceChanged: unhandled key=" + key)
     }
 
-    @JvmStatic
+   
     fun hasFlag(flag: Int): Boolean {
         if ((mCurrentFlags and flag) != 0) {
             mCurrentFlags = mCurrentFlags and flag.inv()
@@ -343,7 +343,7 @@ object GlobalKeyboardSettings {
         return false
     }
 
-    @JvmStatic
+   
     fun unhandledFlags(): Int {
         return mCurrentFlags
     }

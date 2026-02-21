@@ -119,7 +119,7 @@ class DeadAccentSequence(user: ComposeSequencing) : ComposeSequence(user) {
          * @param nonSpacing the combining (non-spacing) diacritical mark character
          * @return the spacing variant representation, or the original character if no mapping exists
          */
-        @JvmStatic
+       
         fun getSpacing(nonSpacing: Char): String {
             var spacing = get("" + Keyboard.DEAD_KEY_PLACEHOLDER + nonSpacing)
             if (spacing == null) spacing = normalize(" $nonSpacing")
@@ -157,7 +157,7 @@ class DeadAccentSequence(user: ComposeSequencing) : ComposeSequence(user) {
          * @param input the string to normalize
          * @return the normalized string from the compose table, or the NFC-normalized result
          */
-        @JvmStatic
+       
         fun normalize(input: String): String {
             val lookup = mMap[input]
             return lookup ?: doNormalise(input)

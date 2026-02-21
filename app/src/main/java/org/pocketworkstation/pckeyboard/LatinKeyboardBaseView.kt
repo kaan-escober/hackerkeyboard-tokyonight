@@ -54,7 +54,7 @@ import java.lang.reflect.Method
 import java.util.LinkedList
 import java.util.WeakHashMap
 
-open class LatinKeyboardBaseView @JvmOverloads constructor(
+open class LatinKeyboardBaseView constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyle: Int = R.attr.keyboardViewStyle
@@ -71,7 +71,7 @@ open class LatinKeyboardBaseView @JvmOverloads constructor(
         private var sCustomTypeface: Typeface? = null
         private var sCurrentFontMode: Int = -1
 
-        @JvmField
+       
         var sSetRenderMode: Method? = null
         private var sPrevRenderMode: Int = -1
 
@@ -82,13 +82,13 @@ open class LatinKeyboardBaseView @JvmOverloads constructor(
             0f, 0f, 0f, 1f, 0f
         )
 
-        @JvmStatic
+       
         fun isNumberAtLeftmostPopupChar(key: Key): Boolean {
             val pc = key.popupCharacters ?: return false
             return pc.isNotEmpty() && isAsciiDigit(pc[0])
         }
 
-        @JvmStatic
+       
         fun isNumberAtRightmostPopupChar(key: Key): Boolean {
             val pc = key.popupCharacters ?: return false
             return pc.isNotEmpty() && isAsciiDigit(pc[pc.length - 1])
@@ -99,7 +99,7 @@ open class LatinKeyboardBaseView @JvmOverloads constructor(
         private fun isNumberAtEdgeOfPopupChars(key: Key): Boolean =
             isNumberAtLeftmostPopupChar(key) || isNumberAtRightmostPopupChar(key)
 
-        @JvmStatic
+       
         fun initCompatibility() {
             try {
                 sSetRenderMode = View::class.java.getMethod("setLayerType", Int::class.java, Paint::class.java)

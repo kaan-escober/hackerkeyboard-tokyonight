@@ -30,7 +30,7 @@ object LatinIMEUtil {
      *        task should be interrupted; otherwise, in-progress tasks are allowed
      *        to complete.
      */
-    @JvmStatic
+   
     fun cancelTask(task: AsyncTask<*, *, *>?, mayInterruptIfRunning: Boolean) {
         if (task != null && task.status != AsyncTask.Status.FINISHED) {
             task.cancel(mayInterruptIfRunning)
@@ -70,7 +70,7 @@ object LatinIMEUtil {
             private const val GC_INTERVAL = DateUtils.SECOND_IN_MILLIS
             private val sInstance = GCUtils()
 
-            @JvmStatic
+           
             fun getInstance(): GCUtils = sInstance
         }
     }
@@ -161,10 +161,10 @@ object LatinIMEUtil {
             private const val INVALID_COORDINATE = -2
             internal const val BUFSIZE = 20
 
-            @JvmStatic
+           
             fun getInstance(): RingCharBuffer = sRingCharBuffer
 
-            @JvmStatic
+           
             fun init(context: Context, enabled: Boolean): RingCharBuffer {
                 sRingCharBuffer.mContext = context
                 sRingCharBuffer.mEnabled = enabled

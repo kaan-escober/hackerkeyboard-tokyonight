@@ -31,7 +31,7 @@ import android.widget.PopupWindow
 import android.widget.TextView
 import org.pocketworkstation.pckeyboard.Keyboard.Key
 
-class LatinKeyboardView @JvmOverloads constructor(
+class LatinKeyboardView constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyle: Int = 0

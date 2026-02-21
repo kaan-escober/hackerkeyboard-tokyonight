@@ -33,7 +33,7 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
-class LatinKeyboard @JvmOverloads constructor(
+class LatinKeyboard constructor(
     context: Context,
     xmlLayoutResId: Int,
     mode: Int = 0,
@@ -98,10 +98,10 @@ class LatinKeyboard @JvmOverloads constructor(
         private const val SPACEBAR_LANGUAGE_BASELINE = 0.6f
         private const val MINIMUM_SCALE_OF_LANGUAGE_NAME = 0.8f
 
-        @JvmField
+       
         var sSpacebarVerticalCorrection: Int = 0
 
-        @JvmStatic
+       
         fun hasPuncOrSmileysPopup(key: Key): Boolean =
             key.popupResId == R.xml.popup_punctuation || key.popupResId == R.xml.popup_smileys
     }

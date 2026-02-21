@@ -24,7 +24,7 @@ import org.pocketworkstation.pckeyboard.LatinKeyboardBaseView.OnKeyboardActionLi
 import org.pocketworkstation.pckeyboard.LatinKeyboardBaseView.UIHandler
 
 class PointerTracker internal constructor(
-    @JvmField val mPointerId: Int,
+    val mPointerId: Int,
     internal val mHandler: UIHandler,
     private val mKeyDetector: KeyDetector,
     private val mProxy: UIProxy,
@@ -546,7 +546,7 @@ class PointerTracker internal constructor(
             }
         }
 
-        @JvmStatic
+       
         fun clearSlideKeys() {
             sSlideKeys.clear()
         }

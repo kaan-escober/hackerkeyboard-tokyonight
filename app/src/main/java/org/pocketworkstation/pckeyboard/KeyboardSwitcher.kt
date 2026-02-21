@@ -598,24 +598,24 @@ class KeyboardSwitcher private constructor() : SharedPreferences.OnSharedPrefere
         const val MODE_WEB = 7
 
         // Main keyboard layouts without the settings key
-        @JvmField val KEYBOARDMODE_NORMAL = R.id.mode_normal
-        @JvmField val KEYBOARDMODE_URL = R.id.mode_url
-        @JvmField val KEYBOARDMODE_EMAIL = R.id.mode_email
-        @JvmField val KEYBOARDMODE_IM = R.id.mode_im
-        @JvmField val KEYBOARDMODE_WEB = R.id.mode_webentry
+        val KEYBOARDMODE_NORMAL = R.id.mode_normal
+        val KEYBOARDMODE_URL = R.id.mode_url
+        val KEYBOARDMODE_EMAIL = R.id.mode_email
+        val KEYBOARDMODE_IM = R.id.mode_im
+        val KEYBOARDMODE_WEB = R.id.mode_webentry
 
         // Main keyboard layouts with the settings key
-        @JvmField val KEYBOARDMODE_NORMAL_WITH_SETTINGS_KEY = R.id.mode_normal_with_settings_key
-        @JvmField val KEYBOARDMODE_URL_WITH_SETTINGS_KEY = R.id.mode_url_with_settings_key
-        @JvmField val KEYBOARDMODE_EMAIL_WITH_SETTINGS_KEY = R.id.mode_email_with_settings_key
-        @JvmField val KEYBOARDMODE_IM_WITH_SETTINGS_KEY = R.id.mode_im_with_settings_key
-        @JvmField val KEYBOARDMODE_WEB_WITH_SETTINGS_KEY = R.id.mode_webentry_with_settings_key
+        val KEYBOARDMODE_NORMAL_WITH_SETTINGS_KEY = R.id.mode_normal_with_settings_key
+        val KEYBOARDMODE_URL_WITH_SETTINGS_KEY = R.id.mode_url_with_settings_key
+        val KEYBOARDMODE_EMAIL_WITH_SETTINGS_KEY = R.id.mode_email_with_settings_key
+        val KEYBOARDMODE_IM_WITH_SETTINGS_KEY = R.id.mode_im_with_settings_key
+        val KEYBOARDMODE_WEB_WITH_SETTINGS_KEY = R.id.mode_webentry_with_settings_key
 
         // Symbols keyboard layout without the settings key
-        @JvmField val KEYBOARDMODE_SYMBOLS = R.id.mode_symbols
+        val KEYBOARDMODE_SYMBOLS = R.id.mode_symbols
 
         // Symbols keyboard layout with the settings key
-        @JvmField val KEYBOARDMODE_SYMBOLS_WITH_SETTINGS_KEY = R.id.mode_symbols_with_settings_key
+        val KEYBOARDMODE_SYMBOLS_WITH_SETTINGS_KEY = R.id.mode_symbols_with_settings_key
 
         const val DEFAULT_LAYOUT_ID = "10"
         const val PREF_KEYBOARD_LAYOUT = "pref_keyboard_layout"
@@ -691,10 +691,10 @@ class KeyboardSwitcher private constructor() : SharedPreferences.OnSharedPrefere
 
         private val sInstance = KeyboardSwitcher()
 
-        @JvmStatic
+       
         fun getInstance(): KeyboardSwitcher = sInstance
 
-        @JvmStatic
+       
         fun init(ims: LatinIME) {
             sInstance.mInputMethodService = ims
 

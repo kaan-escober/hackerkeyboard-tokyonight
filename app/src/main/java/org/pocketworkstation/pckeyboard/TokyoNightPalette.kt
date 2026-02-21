@@ -26,74 +26,74 @@ class TokyoNightPalette {
      */
     class Variant(
         // ========== BACKGROUND COLORS ==========
-        @JvmField @ColorInt val bg: Int,
-        @JvmField @ColorInt val bgDark: Int,
-        @JvmField @ColorInt val bgDark1: Int,
-        @JvmField @ColorInt val bgHighlight: Int,
+        @ColorInt val bg: Int,
+        @ColorInt val bgDark: Int,
+        @ColorInt val bgDark1: Int,
+        @ColorInt val bgHighlight: Int,
 
         // ========== FOREGROUND COLORS ==========
-        @JvmField @ColorInt val fg: Int,
-        @JvmField @ColorInt val fgDark: Int,
-        @JvmField @ColorInt val fgGutter: Int,
+        @ColorInt val fg: Int,
+        @ColorInt val fgDark: Int,
+        @ColorInt val fgGutter: Int,
 
         // ========== PRIMARY ACCENT COLORS ==========
-        @JvmField @ColorInt val blue: Int,
-        @JvmField @ColorInt val blue0: Int,
-        @JvmField @ColorInt val blue1: Int,
-        @JvmField @ColorInt val blue2: Int,
-        @JvmField @ColorInt val blue5: Int,
-        @JvmField @ColorInt val blue6: Int,
-        @JvmField @ColorInt val blue7: Int,
+        @ColorInt val blue: Int,
+        @ColorInt val blue0: Int,
+        @ColorInt val blue1: Int,
+        @ColorInt val blue2: Int,
+        @ColorInt val blue5: Int,
+        @ColorInt val blue6: Int,
+        @ColorInt val blue7: Int,
 
         // ========== SECONDARY ACCENT COLORS ==========
-        @JvmField @ColorInt val cyan: Int,
-        @JvmField @ColorInt val green: Int,
-        @JvmField @ColorInt val green1: Int,
-        @JvmField @ColorInt val green2: Int,
-        @JvmField @ColorInt val magenta: Int,
-        @JvmField @ColorInt val magenta2: Int,
-        @JvmField @ColorInt val orange: Int,
-        @JvmField @ColorInt val purple: Int,
-        @JvmField @ColorInt val red: Int,
-        @JvmField @ColorInt val red1: Int,
-        @JvmField @ColorInt val teal: Int,
-        @JvmField @ColorInt val yellow: Int,
+        @ColorInt val cyan: Int,
+        @ColorInt val green: Int,
+        @ColorInt val green1: Int,
+        @ColorInt val green2: Int,
+        @ColorInt val magenta: Int,
+        @ColorInt val magenta2: Int,
+        @ColorInt val orange: Int,
+        @ColorInt val purple: Int,
+        @ColorInt val red: Int,
+        @ColorInt val red1: Int,
+        @ColorInt val teal: Int,
+        @ColorInt val yellow: Int,
 
         // ========== UI COLORS ==========
-        @JvmField @ColorInt val comment: Int,
-        @JvmField @ColorInt val dark3: Int,
-        @JvmField @ColorInt val dark5: Int,
-        @JvmField @ColorInt val terminalBlack: Int,
+        @ColorInt val comment: Int,
+        @ColorInt val dark3: Int,
+        @ColorInt val dark5: Int,
+        @ColorInt val terminalBlack: Int,
 
         // ========== GIT COLORS ==========
-        @JvmField @ColorInt val gitAdd: Int,
-        @JvmField @ColorInt val gitChange: Int,
-        @JvmField @ColorInt val gitDelete: Int,
+        @ColorInt val gitAdd: Int,
+        @ColorInt val gitChange: Int,
+        @ColorInt val gitDelete: Int,
 
         // ========== SEMANTIC KEYBOARD ATTRIBUTES ==========
-        @JvmField @ColorInt val kbdColorBase: Int,
-        @JvmField @ColorInt val kbdColorAlpha: Int,
-        @JvmField @ColorInt val kbdColorMod: Int,
-        @JvmField @ColorInt val kbdColorHighlight: Int,
-        @JvmField @ColorInt val kbdColorText: Int,
-        @JvmField @ColorInt val kbdColorAccent: Int,
-        @JvmField @ColorInt val kbdColorPopup: Int,
+        @ColorInt val kbdColorBase: Int,
+        @ColorInt val kbdColorAlpha: Int,
+        @ColorInt val kbdColorMod: Int,
+        @ColorInt val kbdColorHighlight: Int,
+        @ColorInt val kbdColorText: Int,
+        @ColorInt val kbdColorAccent: Int,
+        @ColorInt val kbdColorPopup: Int,
 
         // ========== TERMINAL COLORS (ANSI) ==========
-        @JvmField @ColorInt val terminalRed: Int,
-        @JvmField @ColorInt val terminalGreen: Int,
-        @JvmField @ColorInt val terminalYellow: Int,
-        @JvmField @ColorInt val terminalBlue: Int,
-        @JvmField @ColorInt val terminalMagenta: Int,
-        @JvmField @ColorInt val terminalCyan: Int,
-        @JvmField @ColorInt val terminalWhite: Int,
-        @JvmField @ColorInt val terminalBrightRed: Int,
-        @JvmField @ColorInt val terminalBrightGreen: Int,
-        @JvmField @ColorInt val terminalBrightYellow: Int,
-        @JvmField @ColorInt val terminalBrightBlue: Int,
-        @JvmField @ColorInt val terminalBrightMagenta: Int,
-        @JvmField @ColorInt val terminalBrightCyan: Int,
-        @JvmField @ColorInt val terminalBrightWhite: Int,
+        @ColorInt val terminalRed: Int,
+        @ColorInt val terminalGreen: Int,
+        @ColorInt val terminalYellow: Int,
+        @ColorInt val terminalBlue: Int,
+        @ColorInt val terminalMagenta: Int,
+        @ColorInt val terminalCyan: Int,
+        @ColorInt val terminalWhite: Int,
+        @ColorInt val terminalBrightRed: Int,
+        @ColorInt val terminalBrightGreen: Int,
+        @ColorInt val terminalBrightYellow: Int,
+        @ColorInt val terminalBrightBlue: Int,
+        @ColorInt val terminalBrightMagenta: Int,
+        @ColorInt val terminalBrightCyan: Int,
+        @ColorInt val terminalBrightWhite: Int,
     )
 
     companion object {
@@ -114,7 +114,7 @@ class TokyoNightPalette {
         annotation class ThemeVariant
 
         // ========== STORM VARIANT (ID: 10) ==========
-        @JvmField
+       
         val STORM: Variant = Variant(
             // Background colors
             0xFF24283b.toInt(), 0xFF1f2335.toInt(), 0xFF1b1e2d.toInt(), 0xFF292e42.toInt(),
@@ -143,7 +143,7 @@ class TokyoNightPalette {
         )
 
         // ========== NIGHT VARIANT (ID: 11) ==========
-        @JvmField
+       
         val NIGHT: Variant = Variant(
             // Background colors (darker than Storm)
             0xFF1a1b26.toInt(), 0xFF16161e.toInt(), 0xFF0c0e14.toInt(), 0xFF292e42.toInt(),
@@ -172,7 +172,7 @@ class TokyoNightPalette {
         )
 
         // ========== MOON VARIANT (ID: 13) ==========
-        @JvmField
+       
         val MOON: Variant = Variant(
             // Background colors
             0xFF222436.toInt(), 0xFF1e2030.toInt(), 0xFF191b29.toInt(), 0xFF2f334d.toInt(),
@@ -201,7 +201,7 @@ class TokyoNightPalette {
         )
 
         // ========== DAY VARIANT (ID: 12) ==========
-        @JvmField
+       
         val DAY: Variant = Variant(
             // Background colors (inverted)
             0xFFf5f5f5.toInt(), 0xFFe8e8e8.toInt(), 0xFFf3f3f3.toInt(), 0xFFd6d6d6.toInt(),
@@ -235,7 +235,7 @@ class TokyoNightPalette {
          * @param themeId The theme variant ID (THEME_STORM, THEME_NIGHT, THEME_DAY, THEME_MOON)
          * @return The corresponding Variant, or STORM if ID is not recognized
          */
-        @JvmStatic
+       
         fun getVariant(@ThemeVariant themeId: Int): Variant =
             when (themeId) {
                 THEME_NIGHT -> NIGHT
@@ -251,7 +251,7 @@ class TokyoNightPalette {
          * @param name The variant name ("storm", "night", "day", "moon")
          * @return The corresponding Variant, or STORM if name is not recognized
          */
-        @JvmStatic
+       
         fun getVariantByName(name: String?): Variant =
             when (name?.lowercase()) {
                 "night" -> NIGHT
@@ -267,7 +267,7 @@ class TokyoNightPalette {
          * @param name The variant name ("storm", "night", "day", "moon")
          * @return The corresponding theme ID
          */
-        @JvmStatic
+       
         @ThemeVariant
         fun getThemeIdByName(name: String?): Int =
             when (name?.lowercase()) {
@@ -284,7 +284,7 @@ class TokyoNightPalette {
          * @param themeId The theme variant ID
          * @return The variant name
          */
-        @JvmStatic
+       
         fun getThemeName(@ThemeVariant themeId: Int): String =
             when (themeId) {
                 THEME_NIGHT -> "night"
@@ -300,7 +300,7 @@ class TokyoNightPalette {
          * @param themeId The theme variant ID
          * @return true if the theme is light (DAY), false otherwise
          */
-        @JvmStatic
+       
         fun isLightTheme(@ThemeVariant themeId: Int): Boolean = themeId == THEME_DAY
 
         /**
@@ -309,7 +309,7 @@ class TokyoNightPalette {
          * @param themeId The theme variant ID
          * @return true if the theme is dark, false otherwise
          */
-        @JvmStatic
+       
         fun isDarkTheme(@ThemeVariant themeId: Int): Boolean = themeId != THEME_DAY
     }
 }

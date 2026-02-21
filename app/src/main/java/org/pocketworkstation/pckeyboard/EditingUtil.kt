@@ -40,7 +40,7 @@ object EditingUtil {
      * Append newText to the text field represented by connection.
      * The new text becomes selected.
      */
-    @JvmStatic
+   
     fun appendText(connection: InputConnection?, newText: String) {
         if (connection == null) {
             return
@@ -75,7 +75,7 @@ object EditingUtil {
      *   separator. For example, if the field contains "he|llo world", where |
      *   represents the cursor, then "hello " will be returned.
      */
-    @JvmStatic
+   
     fun getWordAtCursor(
         connection: InputConnection?,
         separators: String,
@@ -89,7 +89,7 @@ object EditingUtil {
      * Removes the word surrounding the cursor. Parameters are identical to
      * getWordAtCursor.
      */
-    @JvmStatic
+   
     fun deleteWordAtCursor(connection: InputConnection?, separators: String) {
         val range = getWordRangeAtCursor(connection, separators, null) ?: return
 
@@ -172,7 +172,7 @@ object EditingUtil {
 
     private val spaceRegex = Pattern.compile("\\s+")
 
-    @JvmStatic
+   
     fun getPreviousWord(
         connection: InputConnection,
         sentenceSeperators: String
@@ -219,7 +219,7 @@ object EditingUtil {
      * @return an object containing the text and coordinates of the selected/touching word,
      *         null if the selection/cursor is not marking a whole word.
      */
-    @JvmStatic
+   
     fun getWordAtCursorOrSelection(
         ic: InputConnection,
         selStart: Int,
@@ -318,7 +318,7 @@ object EditingUtil {
     /**
      * Tries to set the text into composition mode if there is support for it in the framework.
      */
-    @JvmStatic
+   
     fun underlineWord(ic: InputConnection, word: SelectedWord) {
         // Use reflection, for backward compatibility
         // If method not found, there's nothing we can do. It still works but just wont underline

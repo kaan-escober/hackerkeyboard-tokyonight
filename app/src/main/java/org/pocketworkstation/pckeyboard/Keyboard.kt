@@ -40,8 +40,8 @@ open class Keyboard {
     companion object {
         const val TAG = "Keyboard"
 
-        @JvmField val DEAD_KEY_PLACEHOLDER: Char = '\u25cc' // dotted small circle
-        @JvmField val DEAD_KEY_PLACEHOLDER_STRING: String = DEAD_KEY_PLACEHOLDER.toString()
+        val DEAD_KEY_PLACEHOLDER: Char = '\u25cc' // dotted small circle
+        val DEAD_KEY_PLACEHOLDER_STRING: String = DEAD_KEY_PLACEHOLDER.toString()
 
         // Keyboard XML Tags
         private const val TAG_KEYBOARD = "Keyboard"
@@ -80,7 +80,7 @@ open class Keyboard {
         /** Number of key widths from current touch point to search for nearest keys. */
         private const val SEARCH_DISTANCE = 1.8f
 
-        @JvmStatic
+       
         fun getDimensionOrFraction(a: TypedArray, index: Int, base: Int, defValue: Float): Float {
             val value = a.peekValue(index) ?: return defValue
             return when (value.type) {
@@ -145,10 +145,10 @@ open class Keyboard {
 
     private var mUseExtension: Boolean = false
 
-    @JvmField var mLayoutRows: Int = 0
-    @JvmField var mLayoutColumns: Int = 0
-    @JvmField var mRowCount: Int = 1
-    @JvmField var mExtensionRowCount: Int = 0
+    var mLayoutRows: Int = 0
+    var mLayoutColumns: Int = 0
+    var mRowCount: Int = 1
+    var mExtensionRowCount: Int = 0
 
     // Variables for pre-computing nearest keys.
     private var mCellWidth: Int = 0
@@ -161,20 +161,20 @@ open class Keyboard {
      */
     class Row {
         /** Default width of a key in this row. */
-        @JvmField var defaultWidth: Float = 0f
+        var defaultWidth: Float = 0f
         /** Default height of a key in this row. */
-        @JvmField var defaultHeight: Int = 0
+        var defaultHeight: Int = 0
         /** Default horizontal gap between keys in this row. */
-        @JvmField var defaultHorizontalGap: Float = 0f
+        var defaultHorizontalGap: Float = 0f
         /** Vertical gap following this row. */
-        @JvmField var verticalGap: Int = 0
+        var verticalGap: Int = 0
 
         /** The keyboard mode for this row */
-        @JvmField var mode: Int = 0
+        var mode: Int = 0
 
-        @JvmField var extension: Boolean = false
+        var extension: Boolean = false
 
-        @JvmField var parent: Keyboard
+        var parent: Keyboard
 
         constructor(parent: Keyboard) {
             this.parent = parent
@@ -219,62 +219,62 @@ open class Keyboard {
          * All the key codes (unicode or custom code) that this key could generate, zero'th
          * being the most important.
          */
-        @JvmField var codes: IntArray? = null
+        var codes: IntArray? = null
 
         /** Label to display */
-        @JvmField var label: CharSequence? = null
-        @JvmField var shiftLabel: CharSequence? = null
-        @JvmField var capsLabel: CharSequence? = null
+        var label: CharSequence? = null
+        var shiftLabel: CharSequence? = null
+        var capsLabel: CharSequence? = null
 
         /** Icon to display instead of a label. Icon takes precedence over a label */
-        @JvmField var icon: Drawable? = null
+        var icon: Drawable? = null
         /** Preview version of the icon, for the preview popup */
-        @JvmField var iconPreview: Drawable? = null
+        var iconPreview: Drawable? = null
         /** Width of the key, not including the gap */
-        @JvmField var width: Int = 0
+        var width: Int = 0
         /** Height of the key, not including the gap */
-        @JvmField var realWidth: Float = 0f
-        @JvmField var height: Int = 0
+        var realWidth: Float = 0f
+        var height: Int = 0
         /** The horizontal gap before this key */
-        @JvmField var gap: Int = 0
-        @JvmField var realGap: Float = 0f
+        var gap: Int = 0
+        var realGap: Float = 0f
         /** Whether this key is sticky, i.e., a toggle key */
-        @JvmField var sticky: Boolean = false
+        var sticky: Boolean = false
         /** X coordinate of the key in the keyboard layout */
-        @JvmField var x: Int = 0
-        @JvmField var realX: Float = 0f
+        var x: Int = 0
+        var realX: Float = 0f
         /** Y coordinate of the key in the keyboard layout */
-        @JvmField var y: Int = 0
+        var y: Int = 0
         /** The current pressed state of this key */
-        @JvmField var pressed: Boolean = false
+        var pressed: Boolean = false
         /** If this is a sticky key, is it on or locked? */
-        @JvmField var on: Boolean = false
-        @JvmField var locked: Boolean = false
+        var on: Boolean = false
+        var locked: Boolean = false
         /** Text to output when pressed. This can be multiple characters, like ".com" */
-        @JvmField var text: CharSequence? = null
+        var text: CharSequence? = null
         /** Popup characters */
-        @JvmField var popupCharacters: CharSequence? = null
-        @JvmField var popupReversed: Boolean = false
-        @JvmField var isCursor: Boolean = false
-        @JvmField var hint: String? = null // Set by LatinKeyboardBaseView
-        @JvmField var altHint: String? = null // Set by LatinKeyboardBaseView
+        var popupCharacters: CharSequence? = null
+        var popupReversed: Boolean = false
+        var isCursor: Boolean = false
+        var hint: String? = null // Set by LatinKeyboardBaseView
+        var altHint: String? = null // Set by LatinKeyboardBaseView
 
         /**
          * Flags that specify the anchoring to edges of the keyboard for detecting touch events
          * that are just out of the boundary of the key.
          */
-        @JvmField var edgeFlags: Int = 0
+        var edgeFlags: Int = 0
         /** Whether this is a modifier key, such as Shift or Alt */
-        @JvmField var modifier: Boolean = false
+        var modifier: Boolean = false
         /** The keyboard that this key belongs to */
         private var keyboard: Keyboard
         /**
          * If this key pops up a mini keyboard, this is the resource id for the XML layout for that
          * keyboard.
          */
-        @JvmField var popupResId: Int = 0
+        var popupResId: Int = 0
         /** Whether this key repeats itself when held down */
-        @JvmField var repeatable: Boolean = false
+        var repeatable: Boolean = false
         /** Is the shifted character the uppercase equivalent of the unshifted one? */
         private var isSimpleUppercase: Boolean = false
         /** Is the shifted character a distinct uppercase char that's different from the shifted char? */
@@ -662,7 +662,7 @@ open class Keyboard {
     /**
      * Creates a keyboard from the given xml key layout file.
      */
-    @JvmOverloads
+   
     constructor(context: Context, defaultHeight: Int, xmlLayoutResId: Int, modeId: Int = 0, kbHeightPercent: Float = 0f) {
         val dm: DisplayMetrics = context.resources.displayMetrics
         mDisplayWidth = dm.widthPixels
@@ -812,7 +812,7 @@ open class Keyboard {
 
     fun getMinWidth(): Int = mTotalWidth
 
-    @JvmOverloads
+   
     open fun setShiftState(shiftState: Int, updateKey: Boolean = true): Boolean {
         if (updateKey && mShiftKey != null) {
             mShiftKey!!.on = shiftState != SHIFT_OFF

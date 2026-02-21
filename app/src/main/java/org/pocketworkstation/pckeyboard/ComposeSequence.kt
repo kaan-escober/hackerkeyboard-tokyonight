@@ -19,9 +19,9 @@ package org.pocketworkstation.pckeyboard
 import android.util.Log
 
 open class ComposeSequence(
-    @JvmField protected var composeUser: ComposeSequencing
+    protected var composeUser: ComposeSequencing
 ) {
-    @JvmField
+   
     protected val composeBuffer = StringBuilder(10)
 
     init { clear() }
@@ -29,6 +29,8 @@ open class ComposeSequence(
     fun clear() {
         composeBuffer.setLength(0)
     }
+
+    fun hasComposePending(): Boolean = composeBuffer.isNotEmpty()
 
     fun bufferKey(code: Char) {
         composeBuffer.append(code)
@@ -75,41 +77,41 @@ open class ComposeSequence(
     companion object {
         private const val TAG = "HK/ComposeSequence"
 
-        @JvmField
+       
         val mMap = mutableMapOf<String, String>()
 
-        @JvmField
+       
         val mPrefixes = mutableSetOf<String>()
 
-        @JvmField protected val UP          = LatinKeyboardView.KEYCODE_DPAD_UP.toChar()
-        @JvmField protected val DOWN        = LatinKeyboardView.KEYCODE_DPAD_DOWN.toChar()
-        @JvmField protected val LEFT        = LatinKeyboardView.KEYCODE_DPAD_LEFT.toChar()
-        @JvmField protected val RIGHT       = LatinKeyboardView.KEYCODE_DPAD_RIGHT.toChar()
-        @JvmField protected val COMPOSE     = LatinKeyboardView.KEYCODE_DPAD_CENTER.toChar()
-        @JvmField protected val PAGE_UP     = LatinKeyboardView.KEYCODE_PAGE_UP.toChar()
-        @JvmField protected val PAGE_DOWN   = LatinKeyboardView.KEYCODE_PAGE_DOWN.toChar()
-        @JvmField protected val ESCAPE      = LatinKeyboardView.KEYCODE_ESCAPE.toChar()
-        @JvmField protected val DELETE      = LatinKeyboardView.KEYCODE_FORWARD_DEL.toChar()
-        @JvmField protected val CAPS_LOCK   = LatinKeyboardView.KEYCODE_CAPS_LOCK.toChar()
-        @JvmField protected val SCROLL_LOCK = LatinKeyboardView.KEYCODE_SCROLL_LOCK.toChar()
-        @JvmField protected val SYSRQ       = LatinKeyboardView.KEYCODE_SYSRQ.toChar()
-        @JvmField protected val BREAK       = LatinKeyboardView.KEYCODE_BREAK.toChar()
-        @JvmField protected val HOME        = LatinKeyboardView.KEYCODE_HOME.toChar()
-        @JvmField protected val END         = LatinKeyboardView.KEYCODE_END.toChar()
-        @JvmField protected val INSERT      = LatinKeyboardView.KEYCODE_INSERT.toChar()
-        @JvmField protected val F1          = LatinKeyboardView.KEYCODE_FKEY_F1.toChar()
-        @JvmField protected val F2          = LatinKeyboardView.KEYCODE_FKEY_F2.toChar()
-        @JvmField protected val F3          = LatinKeyboardView.KEYCODE_FKEY_F3.toChar()
-        @JvmField protected val F4          = LatinKeyboardView.KEYCODE_FKEY_F4.toChar()
-        @JvmField protected val F5          = LatinKeyboardView.KEYCODE_FKEY_F5.toChar()
-        @JvmField protected val F6          = LatinKeyboardView.KEYCODE_FKEY_F6.toChar()
-        @JvmField protected val F7          = LatinKeyboardView.KEYCODE_FKEY_F7.toChar()
-        @JvmField protected val F8          = LatinKeyboardView.KEYCODE_FKEY_F8.toChar()
-        @JvmField protected val F9          = LatinKeyboardView.KEYCODE_FKEY_F9.toChar()
-        @JvmField protected val F10         = LatinKeyboardView.KEYCODE_FKEY_F10.toChar()
-        @JvmField protected val F11         = LatinKeyboardView.KEYCODE_FKEY_F11.toChar()
-        @JvmField protected val F12         = LatinKeyboardView.KEYCODE_FKEY_F12.toChar()
-        @JvmField protected val NUM_LOCK    = LatinKeyboardView.KEYCODE_NUM_LOCK.toChar()
+        protected val UP          = LatinKeyboardView.KEYCODE_DPAD_UP.toChar()
+        protected val DOWN        = LatinKeyboardView.KEYCODE_DPAD_DOWN.toChar()
+        protected val LEFT        = LatinKeyboardView.KEYCODE_DPAD_LEFT.toChar()
+        protected val RIGHT       = LatinKeyboardView.KEYCODE_DPAD_RIGHT.toChar()
+        protected val COMPOSE     = LatinKeyboardView.KEYCODE_DPAD_CENTER.toChar()
+        protected val PAGE_UP     = LatinKeyboardView.KEYCODE_PAGE_UP.toChar()
+        protected val PAGE_DOWN   = LatinKeyboardView.KEYCODE_PAGE_DOWN.toChar()
+        protected val ESCAPE      = LatinKeyboardView.KEYCODE_ESCAPE.toChar()
+        protected val DELETE      = LatinKeyboardView.KEYCODE_FORWARD_DEL.toChar()
+        protected val CAPS_LOCK   = LatinKeyboardView.KEYCODE_CAPS_LOCK.toChar()
+        protected val SCROLL_LOCK = LatinKeyboardView.KEYCODE_SCROLL_LOCK.toChar()
+        protected val SYSRQ       = LatinKeyboardView.KEYCODE_SYSRQ.toChar()
+        protected val BREAK       = LatinKeyboardView.KEYCODE_BREAK.toChar()
+        protected val HOME        = LatinKeyboardView.KEYCODE_HOME.toChar()
+        protected val END         = LatinKeyboardView.KEYCODE_END.toChar()
+        protected val INSERT      = LatinKeyboardView.KEYCODE_INSERT.toChar()
+        protected val F1          = LatinKeyboardView.KEYCODE_FKEY_F1.toChar()
+        protected val F2          = LatinKeyboardView.KEYCODE_FKEY_F2.toChar()
+        protected val F3          = LatinKeyboardView.KEYCODE_FKEY_F3.toChar()
+        protected val F4          = LatinKeyboardView.KEYCODE_FKEY_F4.toChar()
+        protected val F5          = LatinKeyboardView.KEYCODE_FKEY_F5.toChar()
+        protected val F6          = LatinKeyboardView.KEYCODE_FKEY_F6.toChar()
+        protected val F7          = LatinKeyboardView.KEYCODE_FKEY_F7.toChar()
+        protected val F8          = LatinKeyboardView.KEYCODE_FKEY_F8.toChar()
+        protected val F9          = LatinKeyboardView.KEYCODE_FKEY_F9.toChar()
+        protected val F10         = LatinKeyboardView.KEYCODE_FKEY_F10.toChar()
+        protected val F11         = LatinKeyboardView.KEYCODE_FKEY_F11.toChar()
+        protected val F12         = LatinKeyboardView.KEYCODE_FKEY_F12.toChar()
+        protected val NUM_LOCK    = LatinKeyboardView.KEYCODE_NUM_LOCK.toChar()
 
         private val keyNames = mapOf(
             '"'.code to "quot",
@@ -144,6 +146,7 @@ open class ComposeSequence(
             NUM_LOCK.code to "Num",
         )
 
+       
         @JvmStatic
         protected fun get(key: String?): String? {
             if (key.isNullOrEmpty()) return null
@@ -158,6 +161,7 @@ open class ComposeSequence(
             return partialKey in mPrefixes
         }
 
+       
         @JvmStatic
         protected fun format(seq: String): String = buildString {
             var quoted = false
@@ -179,6 +183,7 @@ open class ComposeSequence(
             if (quoted) append('"')
         }
 
+       
         @JvmStatic
         protected fun put(key: String, value: String) {
             if (key.isEmpty() || value.isEmpty()) return

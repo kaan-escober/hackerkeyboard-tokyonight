@@ -77,7 +77,7 @@ object SettingsDefinitions {
     const val KEY_TOUCH_POS = "pref_touch_pos"
 
     // ==================== INPUT BEHAVIOR SETTINGS ====================
-    @JvmStatic
+   
     fun getInputBehaviorSections(): List<SettingsSection> = listOf(
         // Text Correction Section
         SettingsSection.Builder("Text Correction")
@@ -98,7 +98,7 @@ object SettingsDefinitions {
     )
 
     // ==================== VISUAL APPEARANCE SETTINGS ====================
-    @JvmStatic
+   
     fun getVisualAppearanceSections(): List<SettingsSection> = listOf(
         // Display Options Section
         SettingsSection.Builder("Display Options")
@@ -130,7 +130,7 @@ object SettingsDefinitions {
     )
 
     // ==================== FEEDBACK SETTINGS ====================
-    @JvmStatic
+   
     fun getFeedbackSections(): List<SettingsSection> = listOf(
         // Haptic Feedback Section
         SettingsSection.Builder("Haptic Feedback")
@@ -149,7 +149,7 @@ object SettingsDefinitions {
     )
 
     // ==================== ADVANCED/KEY BEHAVIOR SETTINGS ====================
-    @JvmStatic
+   
     fun getAdvancedSections(): List<SettingsSection> = listOf(
         // Key Behavior Section
         SettingsSection.Builder("Key Behavior")
@@ -173,7 +173,7 @@ object SettingsDefinitions {
     )
 
     // ==================== SWIPE ACTION OPTIONS ====================
-    @JvmStatic
+   
     fun getSwipeActionEntries(): Array<String> = arrayOf(
         "None",
         "Close keyboard",
@@ -192,7 +192,7 @@ object SettingsDefinitions {
         "Full keyboard"
     )
 
-    @JvmStatic
+   
     fun getSwipeActionValues(): Array<String> = arrayOf(
         "none",
         "close",
@@ -212,7 +212,7 @@ object SettingsDefinitions {
     )
 
     // ==================== CHORDING KEY OPTIONS ====================
-    @JvmStatic
+   
     fun getChordingKeyEntries(): Array<String> = arrayOf(
         "Disabled",
         "Bottom left",
@@ -220,17 +220,17 @@ object SettingsDefinitions {
         "Both"
     )
 
-    @JvmStatic
+   
     fun getChordingKeyValues(): Array<String> = arrayOf("0", "1", "2", "3")
 
     // ==================== KEYBOARD MODE OPTIONS ====================
-    @JvmStatic
+   
     fun getKeyboardModeEntries(): Array<String> = arrayOf(
         "Auto",
         "4-row",
         "5-row"
     )
 
-    @JvmStatic
+   
     fun getKeyboardModeValues(): Array<String> = arrayOf("0", "1", "2")
 }

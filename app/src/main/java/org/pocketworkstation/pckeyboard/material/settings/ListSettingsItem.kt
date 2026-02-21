@@ -19,7 +19,7 @@ package org.pocketworkstation.pckeyboard.material.settings
 /**
  * Settings item for list/dropdown preferences.
  */
-class ListSettingsItem @JvmOverloads constructor(
+class ListSettingsItem constructor(
     key: String,
     title: String,
     summary: String,
