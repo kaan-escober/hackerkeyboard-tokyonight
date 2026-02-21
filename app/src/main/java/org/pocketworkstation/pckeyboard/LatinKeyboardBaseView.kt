@@ -54,7 +54,7 @@ import java.lang.reflect.Method
 import java.util.LinkedList
 import java.util.WeakHashMap
 
-open class LatinKeyboardBaseView constructor(
+open class LatinKeyboardBaseView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyle: Int = R.attr.keyboardViewStyle
