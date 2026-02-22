@@ -102,6 +102,12 @@ class DeadAccentSequence(user: ComposeSequencing) : ComposeSequence(user) {
          * @param spacing the spacing variant of the diacritical mark (standalone representation)
          * @param ascii optional ASCII fallback representation (uses spacing if null)
          */
+        private fun put(key: String, value: String) {
+            if (key.isEmpty() || value.isEmpty()) return
+            mMap[key] = value
+            for (i in 1 until key.length) mPrefixes.add(key.substring(0, i))
+        }
+
         private fun putAccent(nonSpacing: String, spacing: String, ascii: String?) {
             val asciiValue = ascii ?: spacing
             put("$nonSpacing ", asciiValue)

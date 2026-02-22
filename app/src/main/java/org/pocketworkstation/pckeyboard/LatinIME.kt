@@ -344,6 +344,7 @@ class LatinIME : InputMethodService(),
         sKeyboardSettings.initPrefs(prefs, res)
 
         updateKeyboardOptions()
+        ComposeSequence.loadFromAssets(this)
 
         mWordSeparators = mResources.getString(R.string.word_separators)
         mSentenceSeparators = mResources.getString(R.string.sentence_separators)

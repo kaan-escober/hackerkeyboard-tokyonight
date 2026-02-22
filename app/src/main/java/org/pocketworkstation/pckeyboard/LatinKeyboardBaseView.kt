@@ -217,12 +217,8 @@ open class LatinKeyboardBaseView @JvmOverloads constructor(
     private val mDisambiguateSwipe: Boolean
 
     // Drawing
-    private var mDrawPending: Boolean = false
     private val mDirtyRect: Rect = Rect()
-    private var mBuffer: Bitmap? = null
-    private var mKeyboardChanged: Boolean = false
     private var mInvalidatedKey: Key? = null
-    private var mCanvas: Canvas? = null
     private val mPaint: Paint
     private val mPaintHint: Paint
     private val mPadding: Rect
@@ -585,7 +581,7 @@ open class LatinKeyboardBaseView @JvmOverloads constructor(
         }
         mLabelScale = LatinIME.sKeyboardSettings.labelScalePref
         requestLayout()
-        mKeyboardChanged = true
+        mKeyboard?.setKeyboardWidth(mViewWidth)
         invalidateAllKeys()
         computeProximityThreshold(keyboard)
         mMiniKeyboardCacheMain.clear()
@@ -681,16 +677,11 @@ open class LatinKeyboardBaseView @JvmOverloads constructor(
         super.onSizeChanged(w, h, oldw, oldh)
         Log.i(TAG, "onSizeChanged, w=$w, h=$h")
         mViewWidth = w
-        mBuffer = null
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        mCanvas = canvas
-        if (mDrawPending || mBuffer == null || mKeyboardChanged) {
-            onBufferDraw(canvas)
-        }
-        mBuffer?.let { canvas.drawBitmap(it, 0f, 0f, null) }
+        onBufferDraw(canvas)
     }
 
     private fun drawDeadKeyLabel(canvas: Canvas, hint: String, x: Int, baseline: Float, paint: Paint) {
@@ -711,11 +702,6 @@ open class LatinKeyboardBaseView @JvmOverloads constructor(
     }
 
     private fun onBufferDraw(canvas: Canvas) {
-        if (mKeyboardChanged) {
-            mKeyboard?.setKeyboardWidth(mViewWidth)
-            invalidateAllKeys()
-            mKeyboardChanged = false
-        }
         canvas.getClipBounds(mDirtyRect)
         if (mKeyboard == null) return
 
@@ -946,6 +932,7 @@ open class LatinKeyboardBaseView @JvmOverloads constructor(
         }
 
         mInvalidatedKey = null
+        mDirtyRect.setEmpty()
 
         if (mMiniKeyboardVisible) {
             paint.color = ((mBackgroundDimAmount * 0xFF).toInt()) shl 24
@@ -971,8 +958,6 @@ open class LatinKeyboardBaseView @JvmOverloads constructor(
             }
         }
 
-        mDrawPending = false
-        mDirtyRect.setEmpty()
     }
 
     private fun dismissKeyPreview() {
@@ -1142,7 +1127,6 @@ open class LatinKeyboardBaseView @JvmOverloads constructor(
 
     fun invalidateAllKeys() {
         mDirtyRect.union(0, 0, width, height)
-        mDrawPending = true
         invalidate()
     }
 
