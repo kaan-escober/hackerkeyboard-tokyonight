@@ -50,4 +50,5 @@
          to user's finger. -->
     <dimen name="keyboard_vertical_correction">-0.05in</dimen>
     <dimen name="candidate_min_touchable_width">0.3in</dimen>
+    <dimen name="divider_height">1dp</dimen>
 </resources>

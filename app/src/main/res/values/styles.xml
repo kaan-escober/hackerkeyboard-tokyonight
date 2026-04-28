@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Base Application Theme -->
-    <style name="Theme.HackerKeyboard" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/tn_storm_magenta</item>
+    <style name="Theme.HackerKeyboard" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:colorBackground">@color/tn_storm_bg</item>
+        <item name="android:windowBackground">?android:colorBackground</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+    </style>
+
+    <style name="Theme.HackerKeyboard.Splash" parent="Theme.HackerKeyboard">
+        <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 
     <!-- Theme for the Input Method Service (prevents AlertDialog crash with AppCompat) -->
@@ -124,17 +133,17 @@
     <style name="Theme.HackerKeyboard.Material3.Storm" parent="Theme.HackerKeyboard.Material3">
         <item name="colorPrimary">@color/tn_storm_magenta</item>
         <item name="colorOnPrimary">@color/tn_storm_bg</item>
-        <item name="colorPrimaryContainer">@color/tn_storm_bg_dark</item>
+        <item name="colorPrimaryContainer">@color/tn_storm_bg_highlight</item>
         <item name="colorOnPrimaryContainer">@color/tn_storm_fg</item>
 
         <item name="colorSecondary">@color/tn_storm_cyan</item>
         <item name="colorOnSecondary">@color/tn_storm_bg</item>
-        <item name="colorSecondaryContainer">@color/tn_storm_bg_dark</item>
+        <item name="colorSecondaryContainer">@color/tn_storm_bg_highlight</item>
         <item name="colorOnSecondaryContainer">@color/tn_storm_fg</item>
 
         <item name="colorTertiary">@color/tn_storm_blue</item>
         <item name="colorOnTertiary">@color/tn_storm_bg</item>
-        <item name="colorTertiaryContainer">@color/tn_storm_bg_dark</item>
+        <item name="colorTertiaryContainer">@color/tn_storm_bg_highlight</item>
         <item name="colorOnTertiaryContainer">@color/tn_storm_fg</item>
 
         <item name="colorError">@color/tn_storm_red</item>
@@ -144,10 +153,16 @@
 
         <item name="android:colorBackground">@color/tn_storm_bg</item>
         <item name="colorOnBackground">@color/tn_storm_fg</item>
-        <item name="colorSurface">@color/tn_storm_bg_dark</item>
+        <item name="colorSurface">@color/tn_storm_bg</item>
         <item name="colorOnSurface">@color/tn_storm_fg</item>
-        <item name="colorSurfaceVariant">@color/tn_storm_terminal_black</item>
+        <item name="colorSurfaceVariant">@color/tn_storm_bg_dark</item>
         <item name="colorOnSurfaceVariant">@color/tn_storm_fg_dark</item>
+
+        <item name="colorSurfaceContainer">@color/tn_storm_bg_dark</item>
+        <item name="colorSurfaceContainerHigh">@color/tn_storm_bg_highlight</item>
+        <item name="colorSurfaceContainerHighest">@color/tn_storm_bg_highlight</item>
+        <item name="colorSurfaceContainerLow">@color/tn_storm_bg</item>
+        <item name="colorSurfaceContainerLowest">@color/tn_storm_bg</item>
 
         <item name="colorOutline">@color/tn_storm_fg_gutter</item>
         <item name="colorOutlineVariant">@color/tn_storm_bg_highlight</item>
@@ -157,17 +172,17 @@
     <style name="Theme.HackerKeyboard.Material3.Night" parent="Theme.HackerKeyboard.Material3">
         <item name="colorPrimary">@color/tn_night_magenta</item>
         <item name="colorOnPrimary">@color/tn_night_bg</item>
-        <item name="colorPrimaryContainer">@color/tn_night_bg_dark</item>
+        <item name="colorPrimaryContainer">@color/tn_night_bg_highlight</item>
         <item name="colorOnPrimaryContainer">@color/tn_night_fg</item>
 
         <item name="colorSecondary">@color/tn_night_cyan</item>
         <item name="colorOnSecondary">@color/tn_night_bg</item>
-        <item name="colorSecondaryContainer">@color/tn_night_bg_dark</item>
+        <item name="colorSecondaryContainer">@color/tn_night_bg_highlight</item>
         <item name="colorOnSecondaryContainer">@color/tn_night_fg</item>
 
         <item name="colorTertiary">@color/tn_night_blue</item>
         <item name="colorOnTertiary">@color/tn_night_bg</item>
-        <item name="colorTertiaryContainer">@color/tn_night_bg_dark</item>
+        <item name="colorTertiaryContainer">@color/tn_night_bg_highlight</item>
         <item name="colorOnTertiaryContainer">@color/tn_night_fg</item>
 
         <item name="colorError">@color/tn_night_red</item>
@@ -177,10 +192,16 @@
 
         <item name="android:colorBackground">@color/tn_night_bg</item>
         <item name="colorOnBackground">@color/tn_night_fg</item>
-        <item name="colorSurface">@color/tn_night_bg_dark</item>
+        <item name="colorSurface">@color/tn_night_bg</item>
         <item name="colorOnSurface">@color/tn_night_fg</item>
         <item name="colorSurfaceVariant">@color/tn_night_bg_dark</item>
         <item name="colorOnSurfaceVariant">@color/tn_night_fg_dark</item>
+
+        <item name="colorSurfaceContainer">@color/tn_night_bg_dark</item>
+        <item name="colorSurfaceContainerHigh">@color/tn_night_bg_highlight</item>
+        <item name="colorSurfaceContainerHighest">@color/tn_night_bg_highlight</item>
+        <item name="colorSurfaceContainerLow">@color/tn_night_bg</item>
+        <item name="colorSurfaceContainerLowest">@color/tn_night_bg</item>
 
         <item name="colorOutline">@color/tn_night_fg_gutter</item>
         <item name="colorOutlineVariant">@color/tn_night_bg_highlight</item>
@@ -190,17 +211,17 @@
     <style name="Theme.HackerKeyboard.Material3.Moon" parent="Theme.HackerKeyboard.Material3">
         <item name="colorPrimary">@color/tn_moon_magenta</item>
         <item name="colorOnPrimary">@color/tn_moon_bg</item>
-        <item name="colorPrimaryContainer">@color/tn_moon_bg_dark</item>
+        <item name="colorPrimaryContainer">@color/tn_moon_bg_highlight</item>
         <item name="colorOnPrimaryContainer">@color/tn_moon_fg</item>
 
         <item name="colorSecondary">@color/tn_moon_cyan</item>
         <item name="colorOnSecondary">@color/tn_moon_bg</item>
-        <item name="colorSecondaryContainer">@color/tn_moon_bg_dark</item>
+        <item name="colorSecondaryContainer">@color/tn_moon_bg_highlight</item>
         <item name="colorOnSecondaryContainer">@color/tn_moon_fg</item>
 
         <item name="colorTertiary">@color/tn_moon_blue</item>
         <item name="colorOnTertiary">@color/tn_moon_bg</item>
-        <item name="colorTertiaryContainer">@color/tn_moon_bg_dark</item>
+        <item name="colorTertiaryContainer">@color/tn_moon_bg_highlight</item>
         <item name="colorOnTertiaryContainer">@color/tn_moon_fg</item>
 
         <item name="colorError">@color/tn_moon_red</item>
@@ -210,10 +231,16 @@
 
         <item name="android:colorBackground">@color/tn_moon_bg</item>
         <item name="colorOnBackground">@color/tn_moon_fg</item>
-        <item name="colorSurface">@color/tn_moon_bg_dark</item>
+        <item name="colorSurface">@color/tn_moon_bg</item>
         <item name="colorOnSurface">@color/tn_moon_fg</item>
         <item name="colorSurfaceVariant">@color/tn_moon_bg_dark</item>
         <item name="colorOnSurfaceVariant">@color/tn_moon_fg_dark</item>
+
+        <item name="colorSurfaceContainer">@color/tn_moon_bg_dark</item>
+        <item name="colorSurfaceContainerHigh">@color/tn_moon_bg_highlight</item>
+        <item name="colorSurfaceContainerHighest">@color/tn_moon_bg_highlight</item>
+        <item name="colorSurfaceContainerLow">@color/tn_moon_bg</item>
+        <item name="colorSurfaceContainerLowest">@color/tn_moon_bg</item>
 
         <item name="colorOutline">@color/tn_moon_fg_gutter</item>
         <item name="colorOutlineVariant">@color/tn_moon_bg_highlight</item>
@@ -241,11 +268,11 @@
         <item name="colorErrorContainer">@color/tn_day_bg_highlight</item>
         <item name="colorOnErrorContainer">@color/tn_day_red</item>
 
-        <item name="android:colorBackground">@color/tn_day_bg_dark</item>
+        <item name="android:colorBackground">@color/tn_day_bg</item>
         <item name="colorOnBackground">@color/tn_day_fg</item>
         <item name="colorSurface">@color/tn_day_bg</item>
         <item name="colorOnSurface">@color/tn_day_fg</item>
-        <item name="colorSurfaceVariant">@color/tn_day_bg_highlight</item>
+        <item name="colorSurfaceVariant">@color/tn_day_bg_dark</item>
         <item name="colorOnSurfaceVariant">@color/tn_day_fg_dark</item>
 
         <item name="colorOutline">@color/tn_day_terminal_black</item>

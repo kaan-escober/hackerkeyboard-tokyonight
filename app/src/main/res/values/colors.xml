@@ -80,5 +80,6 @@
     <color name="candidate_other">@color/tn_storm_fg</color>
     <color name="latinkeyboard_feedback_language_text">#C0CAF5</color>
     <color name="latinkeyboard_transparent">#00000000</color>
+    <color name="divider_color">#20000000</color>
     <color name="ic_launcher_background">@color/tn_day_bg</color>
 </resources>

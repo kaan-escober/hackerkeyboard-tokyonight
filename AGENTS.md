@@ -12,7 +12,33 @@ This is an Android project managed by Gradle. Use the system `gradle` command fo
 - `Clean Build`: `gradle clean` !don't use it
 
 ### Test Commands
-*(Note: No unit or instrumentation tests were detected in the current codebase structure.)*
+- **Run all unit tests**: `gradle test`
+- **Run all unit tests (verbose)**: `gradle test --info`
+- **Run specific test class**: `gradle test --tests ModifierKeyStateTest`
+- **Run specific test method**: `gradle test --tests ModifierKeyStateTest.testOnPress_transitionsToPressing`
+- **Run test suite**: `gradle test --tests AllTestsSuite`
+- **Run with coverage**: `gradle testDebugUnitTest --info`
+
+### Test Structure
+- **Unit Tests (JUnit + Robolectric)**: `app/src/test/java/`
+  - `state/` - State management tests (ModifierKeyState, TextEntryState)
+  - `composition/` - Word composition tests (WordComposer)
+  - `model/` - Data model tests (Keyboard, Key)
+  - `input/` - Input detection tests (KeyDetector, PointerTracker)
+- **Instrumentation Tests**: `app/src/androidTest/java/`
+
+### Test Coverage
+**Status**: ✅ **118 tests passing** (Pure JVM - no Robolectric)
+
+Current test coverage focuses on Kotlin migration safety:
+- ✅ ModifierKeyState (25 tests - state machine, chording logic)
+- ✅ TextEntryState (45 tests - state transitions, session management)
+- ✅ WordComposer (48 tests - composition, capitalization, backspace)
+- 🔲 Keyboard (XML parsing, geometry - TODO)
+- 🔲 KeyDetector implementations (touch mapping - TODO)
+- 🔲 IME integration smoke tests (TODO)
+
+See [TEST_RESULTS.md](TEST_RESULTS.md) for detailed test report.
 
 ## Code Architecture
 

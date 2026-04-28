@@ -28,10 +28,10 @@ class NotificationReceiver(private val ime: LatinIME) : BroadcastReceiver() {
     companion object {
         const val TAG: String = "PCKeyboard/Notification"
 
-        @JvmField
+       
         val ACTION_SHOW: String = "org.pocketworkstation.pckeyboard.SHOW"
 
-        @JvmField
+       
         val ACTION_SETTINGS: String = "org.pocketworkstation.pckeyboard.SETTINGS"
     }
 

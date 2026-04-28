@@ -39,6 +39,7 @@
 
         <activity android:name="MaterialMainActivity"
                 android:label="@string/english_ime_name"
+                android:theme="@style/Theme.HackerKeyboard.Splash"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
